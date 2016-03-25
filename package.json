@@ -1,0 +1,14 @@
+{
+  "name": "API_node_yahoo_weather",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.0.2",
+    "express-error-handler": "^0.1.4",
+    "express": "~4.1.1",
+    "ejs": "^1.0.0",
+    "request": "2.69.0",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0"
+  }
+}

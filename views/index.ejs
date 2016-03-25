@@ -1,0 +1,49 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+    <meta charset="UTF-8">
+    <title>Test Yahoo weather i2cat - fsagaz</title>
+    <!-- CSS (load bootstrap from a CDN) -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    </head>
+    <body class="container" ng-app="myApp">
+        <main ng-controller='AppCtrl'>
+            <div ng-show=loaded>
+            <h1>{{cityname}}</h1>
+            <h2> Actual temperature : {{temp}} - {{text}} <img src="{{icongif}}"/></h2>
+            <div class="panel panel-default">
+                <div class="panel-heading">Next days:</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li ng-repeat="forecast in forecasts" ng-hide="$first">
+                                <div class="list-group-item-heading">
+                                    <b>{{forecast.day}} - {{forecast.date}} </b>
+                                </div>
+                                <div class="list-group-item-text">
+                                    <span>Highest temp: {{forecast.high}} ºC - Lowest temp: {{forecast.low}} ºC </span>
+                                    <span>{{forecast.text}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+             </div>                
+            </div>
+            <div ng-show=!loaded class="jumbotron">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                    </div>
+                 </div>
+                 <h1>Loading....</h1>
+            </div>
+            <select class="form-control" ng-model="city_selected" ng-options="city for city in cities"  ng-change="changed()">
+        </main>
+                        
+    </body>
+</html>
+  
+

@@ -1,0 +1,12 @@
+body    { padding-top:10px; }
+ul {
+    padding: 0px;
+}
+ul li {list-style-type: none; padding:1%; margin:0px}
+li:nth-child(odd) {
+  color: #31708f;
+}
+li:nth-child(even) {
+  color: #31708f;
+  background-color: #d9edf7;
+}
