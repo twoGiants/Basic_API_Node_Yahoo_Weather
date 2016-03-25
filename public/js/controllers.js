@@ -6,7 +6,7 @@ angular.module('myApp.controllers', []).
 
 controller('AppCtrl', function($scope, $http) {
 
-    $scope.cities = ["Barcelona", "Madrid"];
+    $scope.cities = ["Barcelona", "Madrid", "Cuenca", "Valladolid", "Oslo"];
     $scope.city_selected = $scope.cities[0];
 
     $scope.changed = function() {
