@@ -1,0 +1,10 @@
+{
+	"verbose": true,
+	"watch": 
+    [
+        "app.js",
+        "routes/",
+        "views/"
+    ],
+	"legacy-watch": true
+}

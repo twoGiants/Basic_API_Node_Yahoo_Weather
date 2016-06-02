@@ -11,7 +11,7 @@ controller('AppCtrl', function($scope, $http) {
 
     $scope.changed = function() {
         loadTemp($scope.city_selected);
-    }
+    };
 
     function loadTemp(city) {
         $scope.loaded = false;
