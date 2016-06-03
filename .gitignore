@@ -1,3 +1,5 @@
 node_modules/
 .jshintrc
 nodemon.json
+public/js/bundle.js
+.gitignore
