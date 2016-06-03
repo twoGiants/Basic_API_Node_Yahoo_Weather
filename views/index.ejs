@@ -39,6 +39,14 @@
                               rz-slider-options="forecastSlider.options">
                     </rzslider>
                 </div>
+                <div class="col-md-6">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input class="form-control" type="text" ng-model="city" placeholder="e.g. Vienna" />
+                        </div>
+                        <input class="btn btn-default" type="submit" value="Search" ng-click="search(city)" />
+                    </form>
+                </div>
             </div>
             
             <div class="panel panel-default">
@@ -58,7 +66,7 @@
                 </div>
             </div>
         </div>
-        
+            
         <div ng-show=!loaded class="jumbotron">
             <div class="progress">
                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">

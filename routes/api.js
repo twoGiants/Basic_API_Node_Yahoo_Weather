@@ -8,7 +8,7 @@ var weatherObj;
 
 exports.city = function (req, res) {
     var city = req.query.ciudad;
-    var locationQuery = encodeURI("select item from weather.forecast where woeid in (select woeid from geo.places where text='" + city + ", ES') and u='c'"),
+    var locationQuery = encodeURI("select item from weather.forecast where woeid in (select woeid from geo.places where text='" + city + ", AT') and u='c'"),
         locationUrl = "http://query.yahooapis.com/v1/public/yql?q=" + locationQuery + "&format=json";
 
     request(locationUrl, function (error, response, body) {

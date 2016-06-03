@@ -31,10 +31,31 @@ function WeatherController($scope, $http) {
         loadTemp($scope.city_selected);
     };
     
+    $scope.search = search;
+    
     loadTemp($scope.city_selected);
 
     function loadTemp(city) {
         $scope.loaded = false;
+        getWeather(city);
+    }
+
+    function selectForecasts() {
+        var tempForecastsArr = [];
+        
+        for (var i = 0; i <= $scope.forecastSlider.value; i++) {
+            tempForecastsArr[i] = allForecasts[i];
+        }
+        
+        $scope.forecasts = tempForecastsArr;
+    }
+    
+    function search(city) {
+        getWeather(city);
+    }
+    
+    // refac into service
+    function getWeather(city) {
         $http({
             method: 'GET',
             url: '/api/city?ciudad=' + city
@@ -55,16 +76,6 @@ function WeatherController($scope, $http) {
         error(function (data, status, headers, config) {
             $scope.name = 'Error!';
         });
-    }
-
-    function selectForecasts() {
-        var tempForecastsArr = [];
-        
-        for (var i = 0; i <= $scope.forecastSlider.value; i++) {
-            tempForecastsArr[i] = allForecasts[i];
-        }
-        
-        $scope.forecasts = tempForecastsArr;
     }
 }
 
