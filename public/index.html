@@ -14,9 +14,9 @@
             <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 location">
                 <form class="form-inline">
                     <div class="form-group">
-                        <input class="form-control" type="text" ng-model="city" placeholder="e.g. Vienna" />
+                        <input class="form-control" type="text" ng-model="location" placeholder="e.g. Vienna" />
                     </div>
-                    <input class="btn btn-default" type="submit" value="Search" ng-click="vm.search(city)" />
+                    <input class="btn btn-default" type="submit" value="Search" ng-click="vm.search(location)" />
                 </form>
             </div>
             <div class="col-sm-7 col-md-8 col-lg-8 forecast">
@@ -28,7 +28,7 @@
         
         <div ng-show='vm.loaded'>
             <div class="panel panel-default">
-                <div class="panel-heading">{{vm.cityname}}</div>
+                <div class="panel-heading">{{vm.title}}</div>
                 <div class="panel-body">
                     <div class="list-group-item-heading">
                         <b>{{vm.forecasts[0].day}} - {{vm.forecasts[0].date}} </b>

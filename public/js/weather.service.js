@@ -16,7 +16,7 @@ module.exports = function ($http, $q, $log) {
         function promiseFn(resolve, reject) {
             var httpSettings = {
                 method: 'GET',
-                url: '/api/city?ciudad=' + location
+                url: '/api/location?text=' + location
             };
 
             $http(httpSettings)

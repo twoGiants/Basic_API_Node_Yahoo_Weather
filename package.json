@@ -10,6 +10,7 @@
     "browserify": "^13.0.1",
     "browserify-css": "^0.9.1",
     "express": "~4.1.1",
+    "normalize.css": "^4.1.1",
     "request": "2.69.0"
   },
   "scripts": {

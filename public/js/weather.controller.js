@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function WeatherController($log, $q, weatherService) {
+module.exports = function WeatherController($log, weatherService) {
     // def
     var self = this;
     var allForecasts = {};
 
-    self.cityname = '';
+    self.title    = '';
     self.temp     = '';
     self.text     = '';
     self.code     = '';
@@ -20,8 +20,8 @@ module.exports = function WeatherController($log, $q, weatherService) {
 
     ///////////////
 
+    // slider settings
     function initSlider() {
-        // slider settings
         self.forecastSlider = {
             value: 1,
             options: {
@@ -47,18 +47,16 @@ module.exports = function WeatherController($log, $q, weatherService) {
         self.forecasts = tempForecastsArr;
     }
 
-    function search(city) {
+    // get weather for location
+    function search(location) {
+        var Promise = weatherService.getWeather(location);
+        
         self.loaded = false;
-        getWeather(city);
-    }
-
-    function getWeather(city) {
-        var Promise = weatherService.getWeather(city);
         
         Promise.then(successCb, errorCb);
         
         function successCb(data) {
-            self.cityname = data.item.title;
+            self.title = data.item.title;
             self.temp = data.item.condition.temp + "Cº";
             self.text = data.item.condition.text;
             self.code = data.item.condition.code;
