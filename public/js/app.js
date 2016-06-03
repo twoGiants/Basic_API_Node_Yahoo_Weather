@@ -5,6 +5,7 @@ require('angularjs-slider');
 require('./../css/style.css');
 
 var WeatherController = require('./weather.controller');
+var weatherService = require('./weather.service');
 
 angular
     .module('myApp', [
@@ -13,6 +14,8 @@ angular
 
 angular
     .module('myApp')
-    .controller('WeatherController', WeatherController);
+    .controller('WeatherController', WeatherController)
+    .factory('weatherService', weatherService);
 
-WeatherController.$inject = ['$http'];
+WeatherController.$inject = ['$log', '$q', 'weatherService'];
+weatherService.$inject = ['$http', '$q', '$log'];
