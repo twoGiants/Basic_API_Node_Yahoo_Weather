@@ -8,22 +8,30 @@ angular
 
 function WeatherController($scope, $http) {
 
+    var allForecasts = {};
+    
     $scope.cities = ["Vienna", "Salzburg", "Graz", "Linz"];
     $scope.city_selected = $scope.cities[0];
 
     $scope.forecastSlider = {
-        value: 1,
+        value: 0,
         options: {
-            floor: 1,
+            id: 'slider-id',
+            floor: 0,
             ceil: 9,
             showTicksValues: true,
-            showSelectionBar: true
+            showSelectionBar: true,
+            onChange: function() {
+                selectForecasts();
+            }
         }
     };
     
     $scope.changed = function () {
         loadTemp($scope.city_selected);
     };
+    
+    loadTemp($scope.city_selected);
 
     function loadTemp(city) {
         $scope.loaded = false;
@@ -37,8 +45,9 @@ function WeatherController($scope, $http) {
             $scope.text = data.item.condition.text;
             $scope.code = data.item.condition.code;
             $scope.icongif = "http://l.yimg.com/a/i/us/we/52/" + $scope.code + ".gif";
+            allForecasts = data.item.forecast;
             
-            $scope.forecasts = data.item.forecast;
+            selectForecasts();
 
             $scope.loaded = true;
 
@@ -48,6 +57,27 @@ function WeatherController($scope, $http) {
         });
     }
 
-    loadTemp($scope.city_selected);
-
+    function selectForecasts() {
+        var tempForecastsArr = [];
+        
+        for (var i = 0; i <= $scope.forecastSlider.value; i++) {
+            tempForecastsArr[i] = allForecasts[i];
+        }
+        
+        $scope.forecasts = tempForecastsArr;
+    }
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
