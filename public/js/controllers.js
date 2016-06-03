@@ -2,14 +2,26 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
+angular
+    .module('myApp.controllers', [])
+    .controller('WeatherController', WeatherController);
 
-controller('AppCtrl', function($scope, $http) {
+function WeatherController($scope, $http) {
 
     $scope.cities = ["Vienna", "Salzburg", "Graz", "Linz"];
     $scope.city_selected = $scope.cities[0];
 
-    $scope.changed = function() {
+    $scope.forecastSlider = {
+        value: 1,
+        options: {
+            floor: 1,
+            ceil: 9,
+            showTicksValues: true,
+            showSelectionBar: true
+        }
+    };
+    
+    $scope.changed = function () {
         loadTemp($scope.city_selected);
     };
 
@@ -19,23 +31,23 @@ controller('AppCtrl', function($scope, $http) {
             method: 'GET',
             url: '/api/city?ciudad=' + city
         }).
-        success(function(data, status, headers, config) {
+        success(function (data, status, headers, config) {
             $scope.cityname = data.item.title;
             $scope.temp = data.item.condition.temp + "Cº";
             $scope.text = data.item.condition.text;
             $scope.code = data.item.condition.code;
-            $scope.icongif="http://l.yimg.com/a/i/us/we/52/"+$scope.code+".gif";
-            $scope.forecasts=data.item.forecast;
+            $scope.icongif = "http://l.yimg.com/a/i/us/we/52/" + $scope.code + ".gif";
             
+            $scope.forecasts = data.item.forecast;
+
             $scope.loaded = true;
 
         }).
-        error(function(data, status, headers, config) {
+        error(function (data, status, headers, config) {
             $scope.name = 'Error!';
         });
     }
 
     loadTemp($scope.city_selected);
 
-
-});
+}

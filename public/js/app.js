@@ -1,4 +1,7 @@
 'use strict';
-angular.module('myApp', [
-  'myApp.controllers'
-]);
+
+angular
+    .module('myApp', [
+        'myApp.controllers',
+        'rzModule'
+    ]);

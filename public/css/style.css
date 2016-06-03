@@ -1,12 +1,22 @@
-body    { padding-top:10px; }
-ul {
+body {
+    padding-top: 10px;
+}
+
+.panel ul {
     padding: 0px;
 }
-ul li {list-style-type: none; padding:1%; margin:0px}
-li:nth-child(odd) {
-  color: #31708f;
+
+.panel ul li {
+    list-style-type: none;
+    padding: 1%;
+    margin: 0px
 }
-li:nth-child(even) {
-  color: #31708f;
-  background-color: #d9edf7;
+
+.panel li:nth-child(odd) {
+    color: #31708f;
+}
+
+.panel li:nth-child(even) {
+    color: #31708f;
+    background-color: #d9edf7;
 }
