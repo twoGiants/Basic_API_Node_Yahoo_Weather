@@ -2,7 +2,7 @@
 
 // dependencies
 var express = require('express');
-var api     = require('./routes/api');
+var api     = require('./user-modules/api');
 
 // server
 var app = express();
