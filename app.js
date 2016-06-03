@@ -22,17 +22,21 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(methodOverride());
-app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.static(path.join(__dirname + '/public'))); 
 
 
 // serve index
-app.get('/', routes.index);
+//app.get('/', routes.index);
 
 // JSON API
 app.get('/api/city', api.city);
 
 // redirect all others to the index
-app.get('*', routes.index);
+//app.get('*', routes.index);
+
+//app.get('/', function(req, res) {
+//    res.send('index.html');
+//});
 
 
 /**
