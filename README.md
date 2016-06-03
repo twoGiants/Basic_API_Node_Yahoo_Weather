@@ -1,9 +1,11 @@
-It's a very simple app that uses Yahoo weather API with express and treats the response with Angular.
+This is a fork of fsagaz/Basic_API_Node_Yahoo_Weather app.
 
-The cities are set on controller.js file:
-**$scope.cities = ["Barcelona", "Madrid", "Cuenca", "Valladolid", "Oslo"];**
+It uses the Yahoo Weather API to search and display some weather data.
 
-1. install all the modules requiered using 'npm install' from terminal inside this folder 
-2. for starting type: node app.js
+You can type in any city in the search field.
 
+With the slider you can select the number of days the forecast shall show.
 
+1. Install the modules with 'npm install'
+2. Start with 'npm start'
+3. In browser go to: 'http://localhost:3000'
