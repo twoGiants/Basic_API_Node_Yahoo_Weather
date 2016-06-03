@@ -1,5 +1,5 @@
 body {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .panel ul {
@@ -19,4 +19,12 @@ body {
 .panel li:nth-child(even) {
     color: #31708f;
     background-color: #d9edf7;
+}
+
+.controls {
+    padding-bottom: 20px;
+}
+
+.controls .location {
+    padding-top: 20px;
 }

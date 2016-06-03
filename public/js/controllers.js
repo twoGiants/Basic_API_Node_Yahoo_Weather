@@ -14,10 +14,10 @@ function WeatherController($scope, $http) {
     $scope.city_selected = $scope.cities[0];
 
     $scope.forecastSlider = {
-        value: 0,
+        value: 1,
         options: {
             id: 'slider-id',
-            floor: 0,
+            floor: 1,
             ceil: 9,
             showTicksValues: true,
             showSelectionBar: true,
