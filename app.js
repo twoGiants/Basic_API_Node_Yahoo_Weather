@@ -1,47 +1,17 @@
 'use strict';
-/**
- * Module dependencies
- */
 
-var express = require('express'),
-    bodyParser = require('body-parser'),
-    methodOverride = require('method-override'),
-    errorHandler = require('express-error-handler'),
-    morgan = require('morgan'),
-    routes = require('./routes'),
-    api = require('./routes/api'),
-    http = require('http'),
-    path = require('path');
+var express = require('express');
+var api     = require('./routes/api');
 
-var app = module.exports = express();
-
+var app = express();
 
 app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(methodOverride());
-app.use(express.static(path.join(__dirname + '/public'))); 
-
-
-// serve index
-//app.get('/', routes.index);
+app.use(express.static(__dirname + '/public')); 
 
 // JSON API
 app.get('/api/city', api.city);
 
-// redirect all others to the index
-//app.get('*', routes.index);
-
-//app.get('/', function(req, res) {
-//    res.send('index.html');
-//});
-
-
-/**
- * Start Server
- */
-http.createServer(app).listen(app.get('port'), function () {
+// Start server
+app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
