@@ -1,5 +1,6 @@
 # AngularJS Yahoo Weather Chart
-This is a fork of fsagaz/Basic_API_Node_Yahoo_Weather app.
+This is a fork of
+[fsagaz/Basic_API_Node_Yahoo_Weather app](https://github.com/fsagaz/Basic_API_Node_Yahoo_Weather).
 
 It uses the Yahoo Weather API to search and display some weather data.
 
