@@ -15,7 +15,9 @@
   },
   "scripts": {
     "dev": "node_modules/.bin/browserify -t browserify-css public/js/app.js -o public/js/bundle.js -d | nodemon app.js",
-    "start": "node_modules/.bin/browserify -t browserify-css public/js/app.js -o public/js/bundle.js -d | node app.js"
+    "build": "node_modules/.bin/browserify -t browserify-css public/js/app.js -o public/js/bundle.js -d",
+    "server": "node app.js",
+    "start": "npm run build && npm run server"
   },
   "main": "app.js"
 }
